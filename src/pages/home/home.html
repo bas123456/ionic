@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color='test'>
+    <ion-title>
+      Naruto
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Form Data -->
+  <ion-card>
+      <form (ngSubmit)="AddFarmer()">
+          <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="todo.name" name="name"></ion-input>
+          </ion-item>
+          <ion-item>
+          <ion-label>age</ion-label>
+            <ion-input type="number" [(ngModel)]="todo.age" name="age"></ion-input>
+          </ion-item>
+          <ion-item>
+          <ion-label>tel</ion-label>
+            <ion-input type="text" [(ngModel)]="todo.tel" name="tel"></ion-input>
+          </ion-item>
+          <button ion-button type="submit" block>Add Data</button>
+        </form>
+  </ion-card>
+  <!-- show Data -->
+  <ion-list>
+    <ion-item *ngFor="let farmers of farmer" (click)="detail(farmers)">
+      <h1>{{farmers.name}}</h1>
+      <p>{{farmers.age}}</p>
+      <button ion-button clear item-end><ion-icon name="md-arrow-round-forward"></ion-icon></button>
+    </ion-item>
+  </ion-list>
+</ion-content>
